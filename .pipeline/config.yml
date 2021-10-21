@@ -1,0 +1,23 @@
+# Project configuration
+general:
+  cpiApiServiceKeyCredentialsId: "<cpi-test>" 
+  integrationFlowId: "<SSL_Certificate_Notify>"
+
+# Stages configuration
+stages: 
+  uploadStage: 
+    enable: true #(default: false) 
+  deployStage: 
+    enable: true #(default: false) 
+  integrationTestStage: 
+    enable: true #(default: false)
+
+# Steps configuration
+steps: 
+  integrationArtifactUpload: 
+    packageId:  "<CICDSSL>"  
+    integrationFlowName: "<SSL_Certificate_Notify>" 
+  integrationArtifactTriggerIntegrationTest: 
+    contentType:  "<application/x-www-form-urlencoded>"     # optional, has to be specified when a messageBodyPath is defined
+    messageBodyPath:  "<integrationsTest/messageBody>"      # optional
+    iFlowServiceKeyCredentialsId: <cpi-test>
